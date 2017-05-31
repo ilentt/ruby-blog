@@ -1,15 +1,10 @@
-# Pre-work - *Name of App Here*
+# Pre-work - *I Len's Blog*
 
-> HINT: Please
-> - include this README.md in your project and fill out the information. 
-> - remove the `README.rdoc` file that Rails generates. 
-> - remove all the HINT blocks in this file.
+**I Len's Blog** is a Ruby on Rails blog application.
 
-**Name of your app** is a Ruby on Rails blog application.
+Submitted by: **I Len**
 
-Submitted by: **Your Name Here**
-
-Time spent: **X** hours spent in total
+Time spent: **x** hours spent in total
 
 URL: **Insert your Heroku URL here**
 
@@ -67,7 +62,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [I Len]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
