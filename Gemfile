@@ -33,6 +33,8 @@ gem 'redcarpet'
 gem 'popper_js', '~> 1.9.9'
 gem 'jquery-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'devise'
+gem 'bcrypt', '~> 3.1.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,6 +50,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.1.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
