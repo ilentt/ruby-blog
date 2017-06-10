@@ -1,10 +1,5 @@
 # Pre-work - *I Len's Blog*
 
-> HINT: Please
-> - include this README.md in your project and fill out the information. 
-> - remove the `README.rdoc` file that Rails generates. 
-> - remove all the HINT blocks in this file.
-
 **I Len's Blog** is a Ruby on Rails blog application.
 
 Submitted by: **Tran Thanh I Len**
@@ -53,13 +48,12 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-> HINT: You can put a `walkthrough.gif` file in your project folder, add to git, and use the following syntax to embed it:  
-> `![Video Walkthrough](walkthrough.gif)` 
-> 
-
 ![Video Walkthrough](https://github.com/ilentt/ruby-blog/blob/master/demo/walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Live Demo
+[Demo: ILen's Blog app](https://stormy-spire-66453.herokuapp.com/)
 
 ## Notes
 
