@@ -6,7 +6,7 @@ Submitted by: **Tran Thanh I Len**
 
 Time spent: **40** hours spent in total
 
-URL: **Insert your Heroku URL here**
+URL: **[ILen's Blog app on Heroku](https://stormy-spire-66453.herokuapp.com/)**
 
 ## User Stories
 
@@ -51,9 +51,6 @@ Here's a walkthrough of implemented user stories:
 ![Video Walkthrough](https://github.com/ilentt/ruby-blog/blob/master/demo/walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-## Live Demo
-[ILen's Blog app on Heroku](https://stormy-spire-66453.herokuapp.com/)
 
 ## Notes
 
