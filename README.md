@@ -53,7 +53,7 @@ Here's a walkthrough of implemented user stories:
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Live Demo
-[Demo: ILen's Blog app](https://stormy-spire-66453.herokuapp.com/)
+[ILen's Blog app on Heroku](https://stormy-spire-66453.herokuapp.com/)
 
 ## Notes
 
