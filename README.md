@@ -1,10 +1,15 @@
 # Pre-work - *I Len's Blog*
 
+> HINT: Please
+> - include this README.md in your project and fill out the information. 
+> - remove the `README.rdoc` file that Rails generates. 
+> - remove all the HINT blocks in this file.
+
 **I Len's Blog** is a Ruby on Rails blog application.
 
-Submitted by: **I Len**
+Submitted by: **Tran Thanh I Len**
 
-Time spent: **x** hours spent in total
+Time spent: **40** hours spent in total
 
 URL: **Insert your Heroku URL here**
 
@@ -28,21 +33,21 @@ The following is a list of **required** features of the application you'll build
 * [x] The navbar will be responsive as well as **smart**, showing the user logical options related to authentication.
 * [x] Only users that are logged in can create Articles.
 * [x] Users can only edit & delete their own Articles.
-* [ ] User can only edit & delete their own comments.
+* [x] User can only edit & delete their own comments.
 
 
 The following **optional** features are implemented:
 
-* [ ] User can see who created the Article.
+* [x] User can see who created the Article.
 * [ ] User can see how many views an Article has.
-* [ ] User can see who created the Comment.
+* [x] User can see who created the Comment.
 * [ ] User can add "tags" to a Article, and filter Articles by tag.
 
 > HINT: if you are unsure how to implement the Search feature, you can Google how to implement a simple search form. For example, one of the sites you will find is [this](http://www.jorgecoca.com/buils-search-form-ruby-rails/)
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Apply bootstrap and improve UX/UI!
 
 ## Video Walkthrough 
 
@@ -62,7 +67,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2017] [I Len]
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

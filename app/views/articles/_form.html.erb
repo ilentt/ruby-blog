@@ -1,27 +1,46 @@
-<%= form_with(model: article, local: true) do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="well"> 
+         <%= form_with(model: article, local: true) do |form| %>
+         <!-- <form role="form" class="form-horizontal"> -->
+          <!-- <h4>Editing Article</h4> -->
+          <% if article.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-      <% article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+              <ul>
+              <% article.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+            <div style="padding:14px;" class="form-group field">
+              <!-- <textarea placeholder="Update your status" class="form-control"></textarea> -->
+              <div class="field">
+                <%= form.label :title %>
+                <%= form.text_field :title, id: :article_title, class: "form-control", placeholder: "Title" %>
+              </div>
+
+              <div class="field">
+                <%= form.label :body %>
+                <%= form.text_area :body, id: :article_body, class: "form-control", placeholder: "Content" %>
+              </div>
+            </div>
+          <%= form.button :submit, class: "btn btn-success pull-right" %>
+           <!-- <button type="button" class="btn btn-success pull-right">Post</button> -->
+           <ul class="list-inline">
+              <li><a href="<%= articles_path %>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a></li>
+              <!-- <li><a href="<%= @article %>"><i class="glyphicon glyphicon-refresh"></i> Cancel</a></li> -->
+              <li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li>
+            </ul>
+        <!-- </form> -->
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :article_title %>
   </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :article_body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

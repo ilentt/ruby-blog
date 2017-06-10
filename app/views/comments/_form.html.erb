@@ -1,6 +1,11 @@
-<%= form_for [@article, Comment.new] do |f| %>
-	<div class="form-line">
-		<%= f.text_field :content, placeholder: "Comment...", class: 'form-controller', required: true %>
-		<%= f.submit "Comment", class: "btn btn-primary" %>	
-	</div>
-<% end %>
+<div class="box-footer" style="display: block;">
+	<%= form_for [@article, Comment.new] do | f | %>
+	<!-- <form action="#" method="post"> -->
+		<img class="img-responsive img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Alt Text">
+		<div class="img-push">
+		  <!-- <input type="text" class="form-control input-sm" placeholder="Press enter to post comment"> -->
+			<%= f.text_field :content, placeholder: "Comment...", class: "form-control input-sm", required: true %>
+		</div>
+	<!-- </form> -->
+  	<% end %>
+</div>

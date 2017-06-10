@@ -1,25 +1,84 @@
-<p id="notice"><%= notice %></p>
+<div class="container bootstrap snippet">
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="box box-widget">
+    <div class="box-header with-border">
+      <div class="user-block">
+        <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User Image">
+        <span class="username"><a href="#"><%= User.find(@article.user_id).email %></a></span>
+        <span class="description">Shared publicly - <%= time_ago_in_words(@article.created_at) %></span>
+      </div>
+      <!-- <div class="box-tools">
+        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+        <i class="fa fa-circle-o"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div> -->
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+    <div class="box-body" style="display: block;">
+		<strong style="color:#337ab7; text-transform: uppercase;"><%= @article.title %></strong>
+		<img class="img-responsive pad" src="https://lorempixel.com/800/400/nature/4/" alt="Photo">
+		<p><%= @article.body %></p>
+		<!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+		<button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+		<span class="pull-right text-muted">127 likes - 3 comments</span> -->
+		<footer class="bg-body-light">
+	        <ul class="post-links no-separator">
+	        	<li><a href="<%= articles_path %>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a></li>
+	            <li><a href="#"><span class="text-danger"><i class="fa fa-heart"></i> 427</span></a></li>
+	            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 98</a></li>
+	            <% if user_signed_in? %>
+					       <% if @article.user_id == current_user.id %>
+	            		<li><a href="<%= edit_article_path(@article) %>"><i class="glyphicon glyphicon-edit"></i> Edit</a></li>
+	            		<!-- <li><%= link_to 'Delete', article_path, method: :delete, data: {confirm: "Are you sure want to delete the article \"#{@article.title}\"?"} %></li> -->
+	            		<li><a href="<%= article_path %>" data-confirm="Are you sure want to delete the article #{@article.title}?" data-method="delete"><i class="glyphicon glyphicon-remove"></i> Delete</a></li>
+	            	<% end %>
+				<% end %>
+	        </ul>
+	    </footer>
+    </div>
+    
+    <div style="clear: both;"></div>
+    <div class="box-footer box-comments" style="display: block;">
+      
+      <!-- <div class="box-comment">
+        <img class="img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User Image">
+        <div class="comment-text">
+          <span class="username">
+          Maria Gonzales
+          <span class="text-muted pull-right"><%= time_ago_in_words(@article.created_at) %></span>
+          </span>
+          It is a long established fact that a reader will be distracted
+          by the readable content of a page when looking at its layout.
+        </div>
+      </div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+      <div class="box-comment">
+        <img class="img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Image">
+        <div class="comment-text">
+          <span class="username">
+          Luna Stark
+          <span class="text-muted pull-right">8:03 PM Today</span>
+          </span>
+          It is a long established fact that a reader will be distracted
+          by the readable content of a page when looking at its layout.
+        </div>
+      </div> -->
+      <%= render @article.comments %>
+    </div>
 
-<% if user_signed_in? %>
-	<% if @article.user_id == current_user.id %>
-		<%= link_to 'Edit', edit_article_path(@article) %> |
-		<%= link_to 'Back', articles_path %>
-	<% end %>
-<% end %>
-
-<h3>Comments: </h3>
-<%= render @article.comments %>
-<% if user_signed_in? %>
-	<%= render 'comments/form' %>
-<% end %>
-
+    <!-- <div class="box-footer" style="display: block;">
+      <form action="#" method="post">
+        <img class="img-responsive img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Alt Text">
+        <div class="img-push">
+          <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+        </div>
+      </form>
+    </div> -->
+    <% if user_signed_in? %>
+		  <%= render 'comments/form' %>
+	  <% end %>
+  </div>
+</div>
+</div>

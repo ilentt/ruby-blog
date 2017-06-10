@@ -1,26 +1,68 @@
-<p id="notice"><%= notice %></p>
-<h1>Articles</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-white profile-widget">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="image-container bg2" style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)">  
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="avatar" alt="avatar"> 
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="details">
+                        <h4>I Len<i class="fa fa-sheild"></i></h4>
+                        <div>Works at Keizu Vietnam</div>
+                        <div>Attended Course of CoderSchool</div>
+                        <div>Lives in Ho Chi Minh City, Vietnam</div><br/>
+                        <div class="mg-top-10">
+                            <a href="#" class="btn btn-default">About I Len</a>
+                            <a href="#" class="btn btn-success">Add I Len</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End header -->
+            <% @articles.each do |article| %>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="panel panel-white post">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Created at</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <div class="post-heading">
+                        <div class="pull-left image">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle avatar" alt="user profile image">
+                        </div>
+                        <div class="pull-left meta">
+                            <div class="title h5">
+                                <a href="#"><b><%= User.find(article.user_id).email %></b></a>
+                                add a new post.
+                            </div>
+                            <h6 class="text-muted time"><%= time_ago_in_words(article.created_at) %></h6>
+                        </div>
+                    </div>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= time_ago_in_words(article.created_at) %></td>
-        <td><%= @markdown.render(article.body).html_safe %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: "Are you sure you want to delete the article \"#{article.title}\"?" } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                    <div class="post-image">
+                        <img src=""><img src="https://lorempixel.com/800/400/nature/4/" class="image" alt="image post">
+                    </div>
+
+                    <div class="post-description">
+                        <h4><%= link_to article.title, article %></h4>
+                        <p><%= @mardown.render(article.body).html_safe %></p>
+                        <div class="stats">
+                            <a href="javascript:void(0);" class="btn btn-default stat-item">
+                                <i class="fa fa-thumbs-up icon"></i>228
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-default stat-item">
+                                <i class="fa fa-share icon"></i>128
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+            <% end %>
+
+        </div>
+    </div>
+  </div>
+</div>

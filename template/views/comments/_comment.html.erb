@@ -1,0 +1,27 @@
+<p><%= comment.content %></p>
+<% if user_signed_in? %>
+	<% if comment.user_id == current_user.id %>
+		<%= link_to 'Edit', edit_article_comment_path(comment.article, comment), class: "btn btn-success" %>
+		<%= link_to 'Delete', article_comment_path(comment.article, comment), method: :delete, data: {confirm: "Are you sure want to deleted this comment"} %>
+	<% end %>	
+<% end %>
+<span>User: </span> <%= User.find(comment.user_id).email %>
+
+<div class="box-comment">
+	<img class="img-circle img-sm" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Image">
+	<div class="comment-text">
+	  <span class="username">
+	  <%= User.find(comment.user_id).email %>
+	  <span class="text-muted pull-right"><%= User.find(comment.user_id).updated_at %></span>
+	  	<% if user_signed_in? %>
+		  	<% if comment.user_id == current_user.id %>
+		  		<span class="text-muted pull-right" style="padding: 0 8px 0 0;">
+		  			<%= link_to 'Delete', article_comment_path(comment.article, comment), method: :delete, data: {confirm: "Are you sure want to deleted this comment"} %>
+		  		</span>
+		  		<span class="text-muted pull-right" style="padding: 0 8px;"><%= link_to 'Edit', edit_article_comment_path(comment.article, comment) %></span>
+			<% end %>
+		<% end %>
+	  </span>
+	  <%= comment.content %>
+	</div>
+</div>

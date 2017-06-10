@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<% if user_signed_in? %>
+	<% if @article.user_id == current_user.id %>
+		<%= link_to 'Edit', edit_article_path(@article) %> |
+		<%= link_to 'Delete', article_path, method: :delete, data: {confirm: "Are you sure want to delete the article \"#{@article.title}\"?"} %> |
+		<%= link_to 'Back', articles_path %>
+	<% end %>
+<% end %>
+
+<h3>Comment: </h3>
+<%= render @article.comments %>
+
+<% if user_signed_in? %>
+	<%= render 'comments/form' %>
+<% end %>
+
+<div class="container">
+	<p id="notice"><%= notice %></p>
+	<div class="row">
+        <div class="col-md-12">
+		    <div class="panel panel-default">
+                <div class="panel-heading"><strong><%= @article.title %></strong></div>
+                    <div class="panel-body">
+                        <!-- <div class="col-md-3"> -->
+                        <div class="col-sm-6 col-md-4">
+                            <a href="#" class="thumbnail"><img src="http://usbcode.ir/wp-content/uploads/2017/03/bootstrap.jpg" alt=""></a>
+                        </div>     
+                            <p>
+                            	<%= @article.body %>
+							</p>
+                    </div>                  
+                <div class="panel-footer">
+                    <span class="glyphicon glyphicon-user" id="start"></span>?<label id="started">By</label>?<a href="#" id="startedby">Admin</a> | 
+                    <span class="glyphicon glyphicon-eye-open" id="visit"></span>?<a href="#" id="visited">Visited</a> | 
+                    <span class="glyphicon glyphicon-comment" id="comment"></span>?<a href="#" id="comments">Comments</a> | 
+                    <a href="#"><span class="label label-info">Tutorials</span></a>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<div class="container bootstrap snippet">
+    <div class="row">
+    	<div class="col-md-9">
+            <section class="widget">
+                <div class="widget-controls">
+                    <a href="#"><i class="fa fa-refresh"></i></a>
+                    <a href="#" data-widgster="close"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-top-overflow text-white">
+                        <img src="https://lorempixel.com/1024/768/nature/3/">
+                        <ul class="tags text-white pull-right">
+                            <li><a href="#">design</a></li>
+                            <li><a href="#">white</a></li>
+                        </ul>
+                    </div>
+                    <div class="post-user mt-sm">
+                        <span class="thumb pull-left mr">
+                            <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+                        </span>
+                        <h5 class="mb-xs mt-xs"><span class="fw-semi-bold">Maryna</span> Nilson</h5>
+                        <p class="fs-mini text-muted"><time><%= time_ago_in_words(@article.created_at) %></time> &nbsp; <i class="fa fa-map-marker"></i> &nbsp; near Ho Chi Minh City</p>
+                    </div>
+                    <p class="text-light fs-mini m"><%= @article.body %></p>
+                </div>
+                <footer class="bg-body-light">
+                    <ul class="post-links no-separator">
+                    	<li><a href="<%= articles_path %>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a></li>
+                        <li><a href="#"><span class="text-danger"><i class="fa fa-heart"></i> 427</span></a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 98</a></li>
+                        <% if user_signed_in? %>
+							<% if @article.user_id == current_user.id %>
+                        		<li><a href="<%= edit_article_path(@article) %>"><i class="glyphicon glyphicon-edit"></i> Edit</a></li>
+                        		<li><%= link_to 'Delete', article_path, method: :delete, data: {confirm: "Are you sure want to delete the article \"#{@article.title}\"?"} %></li>
+                        	<% end %>
+						<% end %>
+                    </ul>
+                </footer>
+            </section>   
+		</div>
+    </div>
+</div>

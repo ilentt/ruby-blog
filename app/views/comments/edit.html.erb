@@ -1,7 +1,26 @@
 <div class="container">
-	<h1>Edit comment:</h1>
-	<%= form_for [@article, @comment] do |f| %>
-		<%= f.text_field :content, label: "Comment", size: "100x10" %>
-		<%= f.button :submit, class: "btn btn-success" %>
-	<% end %>
+	<div class="row">
+		<div class="col-md-8 col-sm-12">
+			<div class="well"> 
+			 <!-- <form role="form" class="form-horizontal"> -->
+			 <%= form_for [@article, @comment], :html => {:class => "form-horizontal"} do |f| %>
+			  <h4>Edit comment:</h4>
+			   <div style="padding:14px;" class="form-group">
+			    <!-- <textarea placeholder="Update your status" class="form-control"></textarea> -->
+			    <%= f.text_area :content, label: "Comment", class: "form-control" %><br />
+			  </div>
+			  <%= f.button :submit, class: "btn btn-success pull-right" %>
+			   <!-- <button type="button" class="btn btn-success pull-right">Post</button> -->
+			   <ul class="list-inline">
+			   		<li><a href="<%= articles_path %>"><i class="glyphicon glyphicon-arrow-left"></i></a></li>
+			   		<!-- <li><a href="<%= @article %>"><i class="glyphicon glyphicon-refresh"></i> Cancel</a></li> -->
+			   		<li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li>
+			   		<li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li>
+			   		<li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li>
+			   	</ul>
+			<!-- </form> -->
+			<% end %>
+			</div>
+		</div>
+	</div>
 </div>

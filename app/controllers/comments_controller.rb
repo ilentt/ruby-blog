@@ -3,18 +3,18 @@ class CommentsController < ApplicationController
 	before_action :find_comment, only: [:edit, :update, :destroy]
 	def create
 		@comment = @article.comments.create(comment_params)
-		if @comment.save
+		@comment.user_id = current_user.id
+		if @comment.save!
 			redirect_to article_path(@article)
 		else
-			render 'new'
+			#render 'new'
+			flash[:error] = "Error saving the comment."
+			redirect_to article_path(@article)
 		end
 	end
-
 	def edit
-		
 	end
 	def update
-		@comment.content = comment_params
 		if @comment.update(comment_params)
 			redirect_to article_path(@article)
 		else

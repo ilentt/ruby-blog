@@ -1,26 +1,48 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<!--login modal-->
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+          <h2 class="text-center">Log In</h2>
+      </div>
+      <div class="modal-body">
+          <!-- <form class="form col-md-12 center-block"> -->
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form col-md-12 center-block"}) do |f| %>
+            <%= devise_error_messages! %>
+            <div class="form-group">
+              <!-- <input type="text" class="form-control input-lg" placeholder="Email"> -->
+              <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email" %>
+            </div>
+            <div class="form-group">
+              <!-- <input type="password" class="form-control input-lg" placeholder="Password"> -->
+              <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg", placeholder: "Password" %>
+            </div>
+            <div class="form-group">
+              <!-- <input type="password" class="form-control input-lg" placeholder="Password"> -->
+              <% if devise_mapping.rememberable? -%>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+              <% end -%>
+            </div>
+            <div class="form-group">
+              <!-- <button class="btn btn-primary btn-lg btn-block">Sign In</button> -->
+              <%= f.submit "Log In", class: "btn btn-primary btn-lg btn-block" %>
+              <!-- <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span> -->
+              
+              <%= render "devise/shared/links" %>
+              
+            </div>
+          <% end %>
+          <!-- </form> -->
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-1accordion2">
+          <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button> -->
+          <%= button_to "Cancel", root_path,
+      :class => "btn", :method => :get %>
+        </div>  
+      </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
   </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
